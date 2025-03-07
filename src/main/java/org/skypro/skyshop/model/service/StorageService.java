@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 
 @Service
 public class StorageService {
-    private final Map<UUID, Product> productStorage;
+    private static Map<UUID, Product> productStorage;
     private final Map<UUID, Article> articleStorage;
 
     public StorageService(Map<UUID, Product> productStorage, Map<UUID, Article> articleStorage) {
@@ -52,5 +52,9 @@ public class StorageService {
                 )
                 .map(SearchResult::fromSearchable)
                 .collect(Collectors.toList());
+    }
+
+    public static Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(productStorage.get(id));
     }
 }
