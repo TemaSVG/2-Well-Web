@@ -39,4 +39,5 @@ public final class ShopError {
                 ", message='" + message + '\'' +
                 '}';
     }
+    //asdasdasdasdasdad
 }
