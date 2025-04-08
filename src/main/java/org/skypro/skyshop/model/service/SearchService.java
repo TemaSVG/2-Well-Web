@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class SearchService {
-    private final StorageService storageService;
+    private StorageService storageService;
 
-    public SearchService(StorageService storageService) {
+    public SearchService() {
         this.storageService = storageService;
     }
 

@@ -38,6 +38,20 @@ public class StorageService {
         articles.forEach(article -> articleStorage.put(article.getId(), article));
     }
 
+    public void addProduct(Product product) {
+        if (product == null) {
+            throw new NoSuchProductException("ID продукта не может быть null");
+        }
+        productStorage.put(product.getId(), product);
+    }
+
+    public void  addArticle(Article article) {
+        if (article == null) {
+            throw new NoSuchProductException("ID статьи не может быть null");
+        }
+        articleStorage.put(article.getId(), article);
+    }
+
     public Collection<Product> getAllProducts() {
         return productStorage.values();
     }
@@ -55,7 +69,7 @@ public class StorageService {
                 .collect(Collectors.toList());
     }
 
-    public static Optional<Product> getProductById(UUID id) {
+    public Optional<Product> getProductById(UUID id) {
         return Optional.ofNullable(productStorage.get(id));
     }
 }
